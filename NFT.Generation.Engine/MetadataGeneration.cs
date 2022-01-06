@@ -25,14 +25,14 @@ namespace NFT.Generation.Engine
                     })
                 };
                 var data = JsonSerializer.Serialize(metadata, serializerSettings);
-                File.WriteAllText(Path.Combine(saveDir, "minted", image.Index.ToString() + ".json"), data);
+                File.WriteAllText(Path.Combine(saveDir, "minted", image.Index.ToString()), data);
 
                 if (!string.IsNullOrEmpty(preMintUrl))
                 {
                     metadata.Image = preMintUrl;
                     metadata.Attributes = null;
                     data = JsonSerializer.Serialize(metadata, serializerSettings);
-                    File.WriteAllText(Path.Combine(saveDir, "preminted", image.Index.ToString() + ".json"), data);
+                    File.WriteAllText(Path.Combine(saveDir, "preminted", image.Index.ToString()), data);
                 }
             }
         }

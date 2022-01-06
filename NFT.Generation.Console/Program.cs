@@ -27,6 +27,7 @@ Console.WriteLine("Generating metadata");
 IMetadataGeneration metadata = serviceProvider.GetRequiredService<IMetadataGeneration>();
 metadata.GenerateMetadata(images, @"G:\Downloads\bb_generated_meta", $"ipfs://QmYr2SvfDbNt7pjRRvnAUC9qYDTZAsGaBC1scgyU9B4rgR");
 
+Console.WriteLine("Uploading metadata");
 await uploader.UploadDirectory(@"G:\Downloads\bb_generated_meta\minted");
 await uploader.UploadDirectory(@"G:\Downloads\bb_generated_meta\preminted");
 
