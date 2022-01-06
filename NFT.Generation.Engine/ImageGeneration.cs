@@ -18,6 +18,7 @@ namespace NFT.Generation.Engine
                 var completedImage = new CompleteImageInfo()
                 {
                     Name = $"BB Beast #{current}",
+                    Index = current,
                     Path = Path.Combine(saveDir, $"{current}.png"),
                     AssetInfos = FetchAssetParts(assets)
                 };
