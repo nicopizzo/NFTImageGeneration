@@ -2,6 +2,6 @@
 {
     public interface IMetadataGeneration
     {
-        public void GenerateMetadata(List<CompleteImageInfo> completeImages, string saveDir, string preMintUrl = "");
+        void GenerateMetadata(List<CompleteImageInfo> completeImages, string saveDir, string preMintUrl = "");
     }
 }

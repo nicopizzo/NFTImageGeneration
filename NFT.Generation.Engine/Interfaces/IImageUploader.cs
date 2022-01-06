@@ -2,6 +2,7 @@
 {
     public interface IImageUploader
     {
-        public List<CompleteImageInfo> UploadImages(List<CompleteImageInfo> images);
+        Task<List<CompleteImageInfo>> UploadImages(List<CompleteImageInfo> images);
+        Task UploadDirectory(string directory);
     }
 }

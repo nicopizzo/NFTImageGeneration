@@ -25,12 +25,14 @@ namespace NFT.Generation.Engine
                     })
                 };
                 var data = JsonSerializer.Serialize(metadata, serializerSettings);
-                File.WriteAllText(Path.Combine(saveDir, "minted", image.Index.ToString()), data);
+                File.WriteAllText(Path.Combine(saveDir, "minted", image.Index.ToString() + ".json"), data);
 
                 if (!string.IsNullOrEmpty(preMintUrl))
                 {
-                    metadata.Image = $"{preMintUrl}{image.Index}";
-                    File.WriteAllText(Path.Combine(saveDir, "pre-minted", image.Index.ToString()), data);
+                    metadata.Image = preMintUrl;
+                    metadata.Attributes = null;
+                    data = JsonSerializer.Serialize(metadata, serializerSettings);
+                    File.WriteAllText(Path.Combine(saveDir, "preminted", image.Index.ToString() + ".json"), data);
                 }
             }
         }
@@ -42,7 +44,7 @@ namespace NFT.Generation.Engine
 
             if (!string.IsNullOrEmpty(preMintUrl))
             {
-                path = Path.Combine(saveDir, "pre-mint");
+                path = Path.Combine(saveDir, "preminted");
                 if (!Directory.Exists(path)) Directory.CreateDirectory(path);
             }
         }
