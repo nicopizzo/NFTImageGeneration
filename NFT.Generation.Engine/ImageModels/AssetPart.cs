@@ -9,6 +9,7 @@
         InnerClothing = 5,
         Outline = 6,
         SkinColor = 7,
-        Belly = 8
+        Belly = 8,
+        Background = 9
     }
 }
