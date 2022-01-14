@@ -8,7 +8,7 @@ namespace NFT.Generation.Engine
     {
         private readonly Random _random = new Random();
 
-        public List<CompleteImageInfo> GenerateImages(CompiledAssets assets, int numOfGenerated, string saveDir)
+        public List<CompleteImageInfo> GenerateImages(CompiledAssets assets, int numOfGenerated, string saveDir, bool includeBackground = true)
         {
             var images = new List<CompleteImageInfo>();
             var current = 0;
@@ -20,7 +20,7 @@ namespace NFT.Generation.Engine
                     Name = $"BB Beast #{current}",
                     Index = current,
                     Path = Path.Combine(saveDir, $"{current}.png"),
-                    AssetInfos = FetchAssetParts(assets)
+                    AssetInfos = FetchAssetParts(assets, includeBackground)
                 };
                 images.Add(completedImage);
                 CreateImage(completedImage);
@@ -30,11 +30,12 @@ namespace NFT.Generation.Engine
             return images;
         }
 
-        private List<AssetInfo> FetchAssetParts(CompiledAssets assets)
+        private List<AssetInfo> FetchAssetParts(CompiledAssets assets, bool includeBackground)
         {
             var result = new List<AssetInfo>();
             foreach(var asset in assets)
             {
+                if (!includeBackground && asset.Key == AssetPart.Background) continue;
                 // foreach asset class, randomly pick
                 var index = _random.Next(0, asset.Value.Count());
                 var picked = asset.Value[index];

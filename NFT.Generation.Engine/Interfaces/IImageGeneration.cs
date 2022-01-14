@@ -2,6 +2,6 @@
 {
     public interface IImageGeneration
     {
-        List<CompleteImageInfo> GenerateImages(CompiledAssets assets, int numOfGenerated, string saveDir);
+        List<CompleteImageInfo> GenerateImages(CompiledAssets assets, int numOfGenerated, string saveDir, bool includeBackground = true);
     }
 }
