@@ -1,0 +1,7 @@
+{
+  "profiles": {
+    "NFT.Generation.Console": {
+      "commandName": "Project"
+    }
+  }
+}

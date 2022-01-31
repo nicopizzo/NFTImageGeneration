@@ -6,8 +6,6 @@ namespace NFT.Generation.Engine
 {
     public class ImageGeneration : IImageGeneration
     {
-        private readonly Random _random = new Random();
-
         public List<CompleteImageInfo> GenerateImages(CompiledAssets assets, int numOfGenerated, string saveDir, bool includeBackground = true)
         {
             var images = new List<CompleteImageInfo>();
@@ -36,9 +34,9 @@ namespace NFT.Generation.Engine
             foreach(var asset in assets)
             {
                 if (!includeBackground && asset.Key == AssetPart.Background) continue;
-                // foreach asset class, randomly pick
-                var index = _random.Next(0, asset.Value.Count());
-                var picked = asset.Value[index];
+                // foreach asset class, randomly pick by rarity
+                var assetNameToGet = asset.Value.RarityTable.GetNextAsset();
+                var picked = asset.Value.Assets.First(f => f.Name == assetNameToGet);
                 result.Add(picked);
             }
             return result;
