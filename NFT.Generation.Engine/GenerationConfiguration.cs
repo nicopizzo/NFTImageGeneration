@@ -38,6 +38,7 @@ namespace NFT.Generation.Engine
                 default: throw new ArgumentException(uploader);
             }
 
+            services.AddSingleton<IRarityAnalizer, RarityAnalizer>();
             services.AddSingleton<IAssetParser, AssetParser>();
             services.AddSingleton<IImageGeneration, ImageGeneration>();
             services.AddSingleton<IMetadataGeneration, MetadataGeneration>();

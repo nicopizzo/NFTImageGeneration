@@ -22,6 +22,11 @@ Parser.Default.ParseArguments<CLOptions>(args)
             Console.WriteLine("Generate Rarity files");
             parser.GenerateRarityFiles(@"G:\Downloads\bb_beast");
         }
+        else if (o.AnalyizeRarity)
+        {
+            var analizer = serviceProvider.GetRequiredService<IRarityAnalizer>();
+            var report = analizer.AnalyzeRarities(@"G:\Downloads\bb_beast", @"G:\Downloads\bb_generated_meta\minted");
+        }
         else
         {
             Console.WriteLine("Parsing assets");

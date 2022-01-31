@@ -6,5 +6,8 @@ namespace NFT.Generation.Console
     {
         [Option('g', "generaterarities")]
         public bool GenerateRarityFiles { get; set; }
+
+        [Option('a', "analyizerarities")]
+        public bool AnalyizeRarity { get; set; }
     }
 }
