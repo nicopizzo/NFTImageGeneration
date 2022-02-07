@@ -3,14 +3,15 @@
     public enum AssetPart
     {
         Head = 1,
-        Eyes = 2,
-        Face = 3,
-        OuterClothing = 4,
+        Face = 2,
+        Mouth = 3,
+        Eyes = 4,
         Accesories = 5,
-        InnerClothing = 6,
-        Outline = 7,
-        SkinColor = 8,
-        Belly = 9,
-        Background = 10
+        OuterClothing = 6,
+        InnerClothing = 7,
+        Outline = 8,
+        SkinColor = 9,
+        Belly = 10,
+        Background = 11
     }
 }

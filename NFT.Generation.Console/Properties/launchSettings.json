@@ -1,8 +1,7 @@
 {
   "profiles": {
     "NFT.Generation.Console": {
-      "commandName": "Project",
-      "commandLineArgs": "-a"
+      "commandName": "Project"
     }
   }
 }

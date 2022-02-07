@@ -47,7 +47,7 @@ namespace NFT.Generation.Engine
                 {
                     rarities.Add(new RarityInfo()
                     {
-                        AssetName = file.Name,
+                        AssetName = Path.GetFileNameWithoutExtension(file.Name),
                         Rarity = rarity
                     });
                 }
@@ -66,10 +66,11 @@ namespace NFT.Generation.Engine
 
         private AssetInfo ProcessFile(FileInfo file, AssetPart part, List<RarityInfo>? rarities)
         {
-            var rarity = rarities?.FirstOrDefault(f => f.AssetName == file.Name);
+            var name = Path.GetFileNameWithoutExtension(file.Name);
+            var rarity = rarities?.FirstOrDefault(f => f.AssetName == name);
             var assetInfo = new AssetInfo()
             {
-                Name = file.Name,
+                Name = name,
                 Part = part,
                 Path = file.FullName
             };
